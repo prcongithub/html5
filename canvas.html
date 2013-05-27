@@ -1,0 +1,97 @@
+<canvas id="myCanvas1" width="200" height="100" style="border:1px solid #000000;"></canvas>
+<canvas id="myCanvas2" width="200" height="100" style="border:1px solid #000000;"></canvas>
+<canvas id="myCanvas3" width="200" height="100" style="border:1px solid #000000;"></canvas>
+<canvas id="myCanvas4" width="200" height="100" style="border:1px solid #000000;"></canvas>
+<canvas id="myCanvas5" width="200" height="100" style="border:1px solid #000000;"></canvas>
+<canvas id="myCanvas6" width="200" height="100" style="border:1px solid #000000;"></canvas>
+<br/><br/><br/>
+<canvas id="myCanvas11" width="200" height="100" style="border:1px solid #000000;"></canvas>
+<canvas id="myCanvas12" width="200" height="100" style="border:1px solid #000000;"></canvas>
+<canvas id="myCanvas13" width="200" height="100" style="border:1px solid #000000;"></canvas>
+<canvas id="myCanvas14" width="200" height="100" style="border:1px solid #000000;"></canvas>
+<canvas id="myCanvas15" width="200" height="100" style="border:1px solid #000000;"></canvas>
+<canvas id="myCanvas16" width="200" height="100" style="border:1px solid #000000;"></canvas>
+<br/><br/><br/>
+<img src="images/image.jpg" id="my_image"/>
+<script>
+	function fillCanvas(){
+		var c=document.getElementById("myCanvas1");
+		var ctx=c.getContext("2d");
+		ctx.fillStyle="#FF0000";
+		ctx.fillRect(0,0,200,100);
+	}
+	
+	function drawLine(){
+		var c=document.getElementById("myCanvas2");
+		var ctx=c.getContext("2d");
+		ctx.moveTo(0,0);
+		ctx.lineTo(200,100);
+		ctx.stroke();
+	}
+	
+	function drawCircle(){
+		var c=document.getElementById("myCanvas3");
+		var ctx=c.getContext("2d");
+		ctx.beginPath();
+		ctx.arc(95,50,40,0,2*Math.PI);
+		ctx.stroke();
+	}
+	
+	function fillText(){
+		var c=document.getElementById("myCanvas4");
+		var ctx=c.getContext("2d");
+		ctx.font="30px Arial";
+		ctx.fillText("Hello World",10,50);
+	}
+	
+	function fillStrokeText(){
+		var c=document.getElementById("myCanvas5");
+		var ctx=c.getContext("2d");
+		ctx.font="30px Arial";
+		ctx.strokeText("Hello World",10,50);
+	}
+	
+	function createLinearGradient(){
+		var c=document.getElementById("myCanvas6");
+		var ctx=c.getContext("2d");
+
+		// Create gradient
+		var grd=ctx.createLinearGradient(0,0,200,0);
+		grd.addColorStop(0,"red");
+		grd.addColorStop(1,"white");
+
+		// Fill with gradient
+		ctx.fillStyle=grd;
+		ctx.fillRect(10,10,150,80);
+	}
+	
+	function createRadialGradient(){
+		var c=document.getElementById("myCanvas11");
+		var ctx=c.getContext("2d");
+
+		// Create gradient
+		var grd=ctx.createRadialGradient(75,50,5,90,60,100);
+		grd.addColorStop(0,"red");
+		grd.addColorStop(1,"white");
+
+		// Fill with gradient
+		ctx.fillStyle=grd;
+		ctx.fillRect(10,10,150,80);
+	}
+	
+	function drawImage(){
+		var c=document.getElementById("myCanvas12");
+		var ctx=c.getContext("2d");
+		var img=document.getElementById("my_image");
+		ctx.drawImage(img,10,10);
+	}
+	
+	fillCanvas();
+	drawLine();
+	drawCircle();
+	fillText();
+	fillStrokeText();
+	createLinearGradient();
+	createRadialGradient();
+	drawImage();
+</script>
